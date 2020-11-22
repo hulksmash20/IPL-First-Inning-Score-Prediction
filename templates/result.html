@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/85fbbe5fee.js" crossorigin="anonymous"></script>
+        <style>
+            h1 {
+                margin-top: 5%;
+                background-color: hotpink;
+            }
+            h3 {
+                color: rgb(0, 0, 0);
+                background-color: greenyellow;
+                padding: 5;
+            }
+            body {
+                background-image: url({{url_for ('static', filename= 'bg.jpg')}});
+                background-size: cover;
+            }
+            input {
+                width: 25%;
+            }
+            input[type=submit]{
+                width: 10%;
+                background-color: hotpink;
+            }
+            select {
+                width: 25%;
+            }
+            div {
+                background-color: #e8e8e8;
+            }
+            i {
+                color: #000;
+                padding-top: 8;
+                padding-right: 10;
+            }
+            p {
+                padding-bottom: 8;
+            }
+        </style>
+        <title>
+            IPL First Inning Score Prediction
+        </title>
+    </head>
+    <body>
+        <center><h1>IPL First Inning Score Prediction</h1></center>
+        <br></br>
+        <center><form action="{{url_for('predict')}}" method="POST">
+            <select id="bat_team", name="bat_team">
+                <option value="None">--Select a Batting Team--</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            </select>
+            <br></br>
+            <select id="bowl_team", name="bowl_team",>
+                <option value="None">--Select a Bowling Team--</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            </select>
+            <br></br>
+            <input type="text" id="overs", name="overs", required="required", placeholder="Enter Overs(>=5.0) Eg-10.1"></input>
+            <br></br>
+            <input type="text" id="runs", name="runs", required="required", placeholder="Enter Runs Eg-48"></input>
+            <br></br>
+            <input type="text" id="wickets", name="wickets", required="required", placeholder="Enter Wickets Eg-3"></input>
+            <br></br>
+            <input type="text" id="runs_in_last5", name="runs_in_last5", required="required", placeholder="Enter Runs in Last 5 Overs"></input>
+            <br></br>
+            <input type="text" id="wickets_in_last5", name="wickets_in_last5", required="required", placeholder="Enter Wickets in Last 5 Overs"></input>
+            <br></br>
+            <input type="submit" id="submit" value="Submit"></input>
+            <br></br>
+        </form></center>
+        <center><h3>{{result}}</h3></center>
+        <br></br>
+        <center><div class='footer'>
+            <div class="contact">
+                <a target="_blank" href="https://github.com/hulksmash20"><i class="fab fa-github fa-lg contact-icon"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/anmol-s-6a1250136/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+            </div>
+            <p class='footer-description'>Made by Anmol Sachan.</p>
+        </div></center>
+    </body>
+</html>
