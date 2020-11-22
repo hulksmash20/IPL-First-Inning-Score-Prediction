@@ -61,7 +61,7 @@ def predict():
         data=np.reshape(data,[1,-1])
         pre=int(regressor.predict(data)[0])
         
-        return render_template('result.html', result='The predicted Score will be between {} and {}'.format(pre-5,pre+5))
+        return render_template('result.html', result='The final Score will be in between {} and {}'.format(pre-5,pre+5))
 
 if __name__=="__main__":
     app.run(debug=True)
